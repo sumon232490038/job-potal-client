@@ -10,11 +10,11 @@ const Navber = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/myApplications">MyApplications</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/">Home</NavLink>
-      </li>
+      </li> */}
     </>
   );
 
@@ -60,7 +60,7 @@ const Navber = () => {
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{link}</ul>
+        <ul className="menu menu-horizontal px-1 space-x-5">{link}</ul>
       </div>
       <div className="navbar-end space-x-5">
         {user ? (
