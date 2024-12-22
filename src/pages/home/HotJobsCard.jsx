@@ -1,4 +1,5 @@
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const HotJobsCard = ({ job }) => {
   console.log(job);
@@ -10,7 +11,7 @@ const HotJobsCard = ({ job }) => {
     description,
     requirements,
     salaryRange,
-    currency,
+    _id,
   } = job;
   return (
     <div className="card card-compact bg-base-100 mx-auto shadow-xl">
@@ -43,7 +44,9 @@ const HotJobsCard = ({ job }) => {
             Salary:${salaryRange.min}-{salaryRange.max} {salaryRange.currency}
           </h1>
 
-          <button className="btn btn-primary">Apply</button>
+          <Link to={`/jobs/${_id}`}>
+            <button className="btn btn-primary">Apply</button>
+          </Link>
         </div>
       </div>
     </div>

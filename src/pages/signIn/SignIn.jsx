@@ -3,9 +3,14 @@ import logInLottieData from "../../assets/lottie/login.json";
 import { useContext } from "react";
 import { AuthContextData } from "../../context/AuthContext";
 import SocialLogin from "./SocialLogin";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-  const { signInUser } = useContext(AuthContextData);
+  const { signInUser, setLoader } = useContext(AuthContextData);
+  const Navigate = useNavigate();
+  const location = useLocation();
+  let form = location?.state || "/";
+  console.log(form, location);
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,7 +19,9 @@ const SignIn = () => {
     const SigIn = { email, password };
     signInUser(email, password)
       .then((reuslt) => {
-        console.log("the user is login successfull", reuslt.user);
+        setLoader(false);
+        // console.log("the user is login successfull", reuslt.user);
+        Navigate(location?.state);
       })
       .catch((error) => console.log(error));
   };
