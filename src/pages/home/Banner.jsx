@@ -3,7 +3,7 @@ import teamImg from "../../assets/lottie/team.jpg";
 
 const Banner = () => {
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-base-200 min-h-screen mx-auto">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="flex-1">
           <motion.img
@@ -12,7 +12,6 @@ const Banner = () => {
             transition={{ duration: 8, repeat: Infinity }}
             className=" w-80 rounded-t-[40px] rounded-br-[40px] bord border-l-8 border-b-8 border-sky-500"
           />
-          <br />
           <motion.img
             src={teamImg}
             animate={{ x: [100, 150, 100] }}
