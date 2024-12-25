@@ -24,7 +24,7 @@ const Navber = () => {
   const handleLogOut = () => {
     signOutUser()
       .then((result) => {
-        console.log(result);
+        // console.log(result);
       })
       .catch((error) => {
         console.log(error);

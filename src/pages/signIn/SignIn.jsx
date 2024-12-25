@@ -4,24 +4,28 @@ import { useContext } from "react";
 import { AuthContextData } from "../../context/AuthContext";
 import SocialLogin from "./SocialLogin";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignIn = () => {
   const { signInUser, setLoader } = useContext(AuthContextData);
   const Navigate = useNavigate();
   const location = useLocation();
   let form = location?.state || "/";
-  console.log(form, location);
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    const SigIn = { email, password };
     signInUser(email, password)
-      .then((reuslt) => {
+      .then((result) => {
         setLoader(false);
-        // console.log("the user is login successfull", reuslt.user);
-        Navigate(location?.state);
+        // console.log(result.user);
+        alert("user login succesfull");
+        const user = { email: result.user.email };
+        axios
+          .post("http://localhost:3000/jwt", user, { withCredentials: true })
+          .then((res) => console.log(res.data));
+        // Navigate(location?.state);
       })
       .catch((error) => console.log(error));
   };

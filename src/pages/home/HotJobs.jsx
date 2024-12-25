@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import HotJobsCard from "./HotJobsCard";
+import axios from "axios";
 
 const HotJobs = () => {
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/jobs")
-      .then((res) => res.json())
-      .then((data) => {
-        setJobs(data);
-      });
+    axios.get("http://localhost:3000/jobs").then((data) => {
+      setJobs(data.data);
+    });
   }, []);
   return (
     <div className="my-10 mx-auto">

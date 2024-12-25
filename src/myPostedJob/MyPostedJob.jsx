@@ -2,14 +2,17 @@ import { useState } from "react";
 import { useEffect } from "react";
 import userAuth from "../pages/hooks/UserAuth";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MyPostedJob = () => {
   const [jobs, setJobs] = useState([]);
   const { user } = userAuth();
   useEffect(() => {
-    fetch(`http://localhost:3000/jobs?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setJobs(data));
+    axios
+      .get(`http://localhost:3000/jobs?email=${user.email}`, {
+        withCredentials: true,
+      })
+      .then((res) => setJobs(res.data));
   }, [user.email]);
   return (
     <div>
@@ -28,7 +31,7 @@ const MyPostedJob = () => {
           </thead>
           <tbody>
             {jobs.map((job, idx) => (
-              <tr>
+              <tr key={idx}>
                 <th>{idx + 1}</th>
                 <td>{job.title}</td>
                 <td>{job.discription}</td>
