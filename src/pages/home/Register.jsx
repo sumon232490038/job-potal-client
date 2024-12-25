@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
-import registerLottieData from "../../../assets/lottie/register.json";
+import registerLottieData from "../../assets/lottie/register.json";
 import { useContext } from "react";
-import { AuthContextData } from "../../../context/AuthContext";
+import { AuthContextData } from "../../context/AuthContext";
 
 const Register = () => {
   const { createNewUser } = useContext(AuthContextData);

@@ -2,7 +2,6 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const HotJobsCard = ({ job }) => {
-  console.log(job);
   const {
     title,
     company_logo,
@@ -35,8 +34,10 @@ const HotJobsCard = ({ job }) => {
         <p>{description}</p>
         <div className="flex flex-wrap gap-2">
           {" "}
-          {requirements.map((require) => (
-            <p className="badge badge-outline text-wrap">{require}</p>
+          {requirements.map((require, idx) => (
+            <p key={idx} className="badge badge-outline text-wrap">
+              {require}
+            </p>
           ))}
         </div>
         <div className="card-actions justify-between items-center ">

@@ -16,7 +16,7 @@ const Banner = () => {
             src={teamImg}
             animate={{ x: [100, 150, 100] }}
             transition={{ duration: 8, repeat: Infinity }}
-            className=" w-80 rounded-t-[40px] rounded-br-[40px] bord border-l-8 border-b-8 border-sky-500"
+            className=" w-40 md:w-80 rounded-t-[40px] rounded-br-[40px] bord border-l-8 border-b-8 border-sky-500"
           />
         </div>
         <div className="flex-1">

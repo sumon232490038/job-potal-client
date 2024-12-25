@@ -26,7 +26,6 @@ const AuthContext = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setLoader(false);
       setUser(currentUser);
-      console.log("This is onSatat", currentUser);
     });
     return () => {
       unSubscribe();
